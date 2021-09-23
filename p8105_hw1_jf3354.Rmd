@@ -5,7 +5,8 @@ date: September 23, 2021
 output: github_document
 
 ---
-###Problem 1
+###PROBLEM ONE
+##Creating the dataframe
 
 library(tidyverse) 
 
@@ -17,5 +18,18 @@ hw1 = tibble(
     vec_logical = c("TRUE", "FALSE", "FALSE", "FALSE", "TRUE", "TRUE", "FALSE", "FALSE", "FALSE", "FALSE"),
     vec_factor = factor(c("low","medium","high","low","medium","high", "low","medium","high", "low"))
   )
+#  vec_numeric = 1:10, vec_numeric = rnorm(10) ?#
 
-###  vec_numeric = 1:10, vec_numeric = rnorm(10)
+##Take the mean of each variable in your dataframe. What works and what doesn’t?
+
+```{r}
+mean(pull(hw1,vec_numeric))
+mean(pull(hw1,vec_char))
+mean(pull(hw1,vec_logical))
+mean(pull(hw1,vec_factor))
+```
+## The mean of my variable vec_numeric was -0.50.I was not able to calculate the mean of my variables vec_char, vec_logical, and vec_factor because the argument of these variables are not numeric. 
+
+##Convert the logical, character, and factor variables using as.numeric. What happens, and why? Does this help explain what happens when you try to take the mean?
+
+
