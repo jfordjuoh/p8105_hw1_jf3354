@@ -32,4 +32,14 @@ mean(pull(hw1,vec_factor))
 
 ##Convert the logical, character, and factor variables using as.numeric. What happens, and why? Does this help explain what happens when you try to take the mean?
 
+```{r}
+vf <- factor(vec_factor) ##convert vector into factor
 
+x <- as.numeric(vf) ##convert factor into numberic value
+
+x ##print the numeric value
+
+is.numeric(x) ##check if this is a numberic value. If so it will print TRUE in the Console
+
+mean(x) #the mean is 2. 
+```
