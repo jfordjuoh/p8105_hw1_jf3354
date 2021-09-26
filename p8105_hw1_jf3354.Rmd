@@ -28,18 +28,32 @@ mean(pull(hw1,vec_char))
 mean(pull(hw1,vec_logical))
 mean(pull(hw1,vec_factor))
 ```
-## The mean of my variable vec_numeric was -0.50.I was not able to calculate the mean of my variables vec_char, vec_logical, and vec_factor because the argument of these variables are not numeric. 
+## The mean of my variable vec_numeric was -0.4906568.I was not able to calculate the mean of my variables vec_char, vec_logical, and vec_factor because the argument of these variables are not numeric. 
 
 ##Convert the logical, character, and factor variables using as.numeric. What happens, and why? Does this help explain what happens when you try to take the mean?
 
-```{r}
+```{r} 
+##Factor variable 
 vf <- factor(vec_factor) ##convert vector into factor
 
-x <- as.numeric(vf) ##convert factor into numberic value
+x <- as.numeric(vf) ##convert factor into numeric value
 
 x ##print the numeric value
 
-is.numeric(x) ##check if this is a numberic value. If so it will print TRUE in the Console
+is.numeric(x) ##check if this is a numeric value. If so it will print TRUE in the Console
 
 mean(x) #the mean is 2. 
+```
+
+```{r} 
+##Logic variable 
+vec_logical = c("TRUE", "FALSE", "FALSE", "FALSE", "TRUE", "TRUE", "FALSE", "FALSE", "FALSE", "FALSE")
+
+a <- as.numeric(factor(vec_logical))
+
+a
+
+is.numeric(a)
+
+mean(a) #the mean is 1.3
 ```
