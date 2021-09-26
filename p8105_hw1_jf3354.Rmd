@@ -9,6 +9,7 @@ output: github_document
 ##Creating the dataframe
 
 library(tidyverse) 
+library(dplyr)
 
 set.seed(10)
 
@@ -18,11 +19,10 @@ hw1 = tibble(
     vec_logical = c("TRUE", "FALSE", "FALSE", "FALSE", "TRUE", "TRUE", "FALSE", "FALSE", "FALSE", "FALSE"),
     vec_factor = factor(c("low","medium","high","low","medium","high", "low","medium","high", "low"))
   )
-#  vec_numeric = 1:10, vec_numeric = rnorm(10) ?#
 
 ##Take the mean of each variable in your dataframe. What works and what doesn’t?
 
-```{r}
+```{r eval=FALSE}
 mean(pull(hw1,vec_numeric))
 mean(pull(hw1,vec_char))
 mean(pull(hw1,vec_logical))
@@ -32,8 +32,7 @@ mean(pull(hw1,vec_factor))
 
 ##Convert the logical, character, and factor variables using as.numeric. What happens, and why? Does this help explain what happens when you try to take the mean?
 
-```{r} 
-##Factor variable 
+```{r eval=FALSE} 
 vf <- factor(vec_factor) ##convert vector into factor
 
 x <- as.numeric(vf) ##convert factor into numeric value
@@ -42,7 +41,7 @@ x ##print the numeric value
 
 is.numeric(x) ##check if this is a numeric value. If so it will print TRUE in the Console
 
-mean(x) #the mean is 2. 
+mean(x) ##the mean is 2. 
 ```
 
 ```{r} 
@@ -69,4 +68,16 @@ character
 is.numeric(character)
 
 mean(character) #the mean is 5.5
+```
+##
+
+##PROBLEM 2
+library(palmerpenguins)
+
+data("penguins", package = "palmerpenguins")
+
+```{r eval=FALSE}
+data <- penguins[1:344,]
+knitr::kable(data,
+ caption = "Penguins Demographics")
 ```
