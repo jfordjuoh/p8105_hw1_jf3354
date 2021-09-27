@@ -3,7 +3,6 @@ title: "p8105_hw1_jf3354"
 author: Judy Fordjuoh
 date: September 23, 2021
 output: github_document
-
 ---
 ###PROBLEM ONE
 ##Creating the dataframe
@@ -28,7 +27,7 @@ mean(pull(hw1,vec_char))
 mean(pull(hw1,vec_logical))
 mean(pull(hw1,vec_factor))
 ```
-## The mean of my variable vec_numeric was -0.4906568.I was not able to calculate the mean of my variables vec_char, vec_logical, and vec_factor because the argument of these variables are not numeric. 
+## The mean of my variable vec_numeric was -0.4906568. I was not able to calculate the mean of my variables vec_char, vec_logical, and vec_factor because the argument of these variables are not numeric. 
 
 ##Convert the logical, character, and factor variables using as.numeric. What happens, and why? Does this help explain what happens when you try to take the mean?
 
@@ -41,8 +40,9 @@ x ##print the numeric value
 
 is.numeric(x) ##check if this is a numeric value. If so it will print TRUE in the Console
 
-mean(x) ##the mean is 2. 
+mean(x) 
 ```
+##The mean of the factor variable is 2. 
 
 ```{r} 
 ##Logic variable 
@@ -54,8 +54,9 @@ logic
 
 is.numeric(logic)
 
-mean(logic) #the mean is 1.3
+mean(logic) 
 ```
+##The mean of the logic variable is 1.3.
 
 ```{r} 
 ##Character variable 
@@ -67,9 +68,9 @@ character
 
 is.numeric(character)
 
-mean(character) #the mean is 5.5
+mean(character) 
 ```
-##
+##The mean of the character variable is 5.5.
 
 ##PROBLEM 2
 library(palmerpenguins)
@@ -81,14 +82,13 @@ colnames(penguins)
 ncol(penguins)
 nrow(penguins)
 str(penguins)
-head(penguins, n = 10)
-tail(penguins, n= 10)
 summary(penguins)
-##The mean flipper length is 200.9mm.
 ```
+## In the dataframe penguins, there are 8 columns named: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. There are also 344 rows in the dataframe. Species is a factor variable with 3 levels: Adelie, Chinstrap, and Gentoo. There were 152 Adelie penguins, 68 Chinstrap penguins, and 124 Gentoo penguins. Island is also a factor variable with 3 variables: Biscoe, Torgersen, and Dream. There were 168 Biscoe penguins, 124 Dream penguins, and 52 Torgersen penguins. Sex is also a factor variable with 2 levels:female and male. There are 165 females, 168 males, and 11 penguins who classified as NA.  Bill_length_mm and Bill_depth_mm have number values. The shortest bill length was 32.10mm while the longest was 59.60 mm. The mean for bill length was 43.92mm and the median was 44.55 mm. The smallest bill depth was 13.10mm while the longest was 21.50 mm. The mean for bill depth was 17.15 mm while the median was 17.30 mm. Year, body_mass_g, and flipper_length_mm have integer values. The years included in the dataframe are 2007,2008,and 2009. The smallest body mass was 2700 grams while the largest was 6300 grams. The median for the body mass was 4050 grams and the mean was 4202 grams. The shortest flipper length was 172.0 mm while the longest was 231.0 mm. The median for the flipper length was 197 mm. THE MEAN FLIPPER LENGTH IS  200.9 mm.
+
 
 #Make a scatterplot
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point(alpha = 0.5) 
 
-
+ggsave("JF_DSHW1_scatterplot.pdf", height = 10, width = 6)
 
