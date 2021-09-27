@@ -77,7 +77,15 @@ library(palmerpenguins)
 data("penguins", package = "palmerpenguins")
 
 ```{r eval=FALSE}
-data <- penguins[1:344,]
-knitr::kable(data,
- caption = "Penguins Demographics")
+colnames(penguins)
+ncol(penguins)
+nrow(penguins)
+str(penguins)
+head(penguins, n = 10)
+tail(penguins, n= 10)
+summary(penguins)
+##The mean flipper length is 200.9mm.
 ```
+
+
+
