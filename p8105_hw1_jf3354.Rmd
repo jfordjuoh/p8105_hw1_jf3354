@@ -87,5 +87,8 @@ summary(penguins)
 ##The mean flipper length is 200.9mm.
 ```
 
+#Make a scatterplot
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point(alpha = 0.5) 
+
 
 
