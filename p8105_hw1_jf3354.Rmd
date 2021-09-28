@@ -88,7 +88,11 @@ summary(penguins)
 
 
 #Make a scatterplot
-ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point(alpha = 0.5) 
+p <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point(alpha = 0.5) 
+
+print(p)
 
 ggsave("JF_DSHW1_scatterplot.pdf", height = 10, width = 6)
+
+
 
