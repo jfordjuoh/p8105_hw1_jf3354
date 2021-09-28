@@ -7,21 +7,24 @@ output: github_document
 ###PROBLEM ONE
 ##Creating the dataframe
 
+```{r}
 library(tidyverse) 
 library(dplyr)
+```
 
+```{r}
 set.seed(10)
 
 hw1 = tibble(
     vec_numeric = rnorm(10),
     vec_char = c("My", "name", "is", "Judy", "and", "I", "am", "learning", "data","science"),
-    vec_logical = c("TRUE", "FALSE", "FALSE", "FALSE", "TRUE", "TRUE", "FALSE", "FALSE", "FALSE", "FALSE"),
+    vec_logical = c(TRUE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE),
     vec_factor = factor(c("low","medium","high","low","medium","high", "low","medium","high", "low"))
   )
-
+```
 ##Take the mean of each variable in your dataframe. What works and what doesn’t?
 
-```{r eval=FALSE}
+```{r}
 mean(pull(hw1,vec_numeric))
 mean(pull(hw1,vec_char))
 mean(pull(hw1,vec_logical))
@@ -31,53 +34,32 @@ mean(pull(hw1,vec_factor))
 
 ##Convert the logical, character, and factor variables using as.numeric. What happens, and why? Does this help explain what happens when you try to take the mean?
 
-```{r eval=FALSE} 
-vf <- factor(vec_factor) ##convert vector into factor
-
-x <- as.numeric(vf) ##convert factor into numeric value
-
-x ##print the numeric value
-
-is.numeric(x) ##check if this is a numeric value. If so it will print TRUE in the Console
-
+```{r} 
+x <- as.numeric(pull(hw1, vec_factor)) ##convert factor into numeric value
 mean(x) 
 ```
 ##The mean of the factor variable is 2. 
 
 ```{r} 
 ##Logic variable 
-vec_logical = c("TRUE", "FALSE", "FALSE", "FALSE", "TRUE", "TRUE", "FALSE", "FALSE", "FALSE", "FALSE")
-
-logic <- as.numeric(factor(vec_logical))
-
-logic
-
-is.numeric(logic)
-
+logic <- as.numeric(pull(hw1, vec_logical))
 mean(logic) 
 ```
-##The mean of the logic variable is 1.3.
+##The mean of the logic variable is 0.3.
 
 ```{r} 
 ##Character variable 
-vec_char = c("My", "name", "is", "Judy", "and", "I", "am", "learning", "data","science")
-
-character <- as.numeric(factor(vec_char))
-
-character
-
-is.numeric(character)
-
+character <- as.numeric(pull(hw1, vec_char))
 mean(character) 
 ```
-##The mean of the character variable is 5.5.
+##There was a warning message stating that NAs were introduced by coercion so i was unadble to get a mean.
 
 ##PROBLEM 2
+```{r}
 library(palmerpenguins)
 
 data("penguins", package = "palmerpenguins")
 
-```{r eval=FALSE}
 colnames(penguins)
 ncol(penguins)
 nrow(penguins)
@@ -86,13 +68,13 @@ summary(penguins)
 ```
 ## In the dataframe penguins, there are 8 columns named: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. There are also 344 rows in the dataframe. Species is a factor variable with 3 levels: Adelie, Chinstrap, and Gentoo. There were 152 Adelie penguins, 68 Chinstrap penguins, and 124 Gentoo penguins. Island is also a factor variable with 3 variables: Biscoe, Torgersen, and Dream. There were 168 Biscoe penguins, 124 Dream penguins, and 52 Torgersen penguins. Sex is also a factor variable with 2 levels:female and male. There are 165 females, 168 males, and 11 penguins who classified as NA.  Bill_length_mm and Bill_depth_mm have number values. The shortest bill length was 32.10mm while the longest was 59.60 mm. The mean for bill length was 43.92mm and the median was 44.55 mm. The smallest bill depth was 13.10mm while the longest was 21.50 mm. The mean for bill depth was 17.15 mm while the median was 17.30 mm. Year, body_mass_g, and flipper_length_mm have integer values. The years included in the dataframe are 2007,2008,and 2009. The smallest body mass was 2700 grams while the largest was 6300 grams. The median for the body mass was 4050 grams and the mean was 4202 grams. The shortest flipper length was 172.0 mm while the longest was 231.0 mm. The median for the flipper length was 197 mm. THE MEAN FLIPPER LENGTH IS  200.9 mm.
 
-
 #Make a scatterplot
+```{r}
 p <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point(alpha = 0.5) 
 
 print(p)
 
 ggsave("JF_DSHW1_scatterplot.pdf", height = 10, width = 6)
-
+```
 
 
