@@ -22,7 +22,7 @@ hw1 = tibble(
     vec_factor = factor(c("low","medium","high","low","medium","high", "low","medium","high", "low"))
   )
 ```
-##Take the mean of each variable in your dataframe. What works and what doesn’t?
+##Question: Take the mean of each variable in your dataframe. What works and what doesn’t?
 
 ```{r}
 mean(pull(hw1,vec_numeric))
@@ -30,29 +30,29 @@ mean(pull(hw1,vec_char))
 mean(pull(hw1,vec_logical))
 mean(pull(hw1,vec_factor))
 ```
-## The mean of my variable vec_numeric was -0.4906568. I was not able to calculate the mean of my variables vec_char, vec_logical, and vec_factor because the argument of these variables are not numeric. 
+## Answer: The mean of my variable vec_numeric was -0.4906568. I was not able to calculate the mean of my variables vec_char, vec_logical, and vec_factor because the argument of these variables are not numeric. 
 
-##Convert the logical, character, and factor variables using as.numeric. What happens, and why? Does this help explain what happens when you try to take the mean?
+##Question: Convert the logical, character, and factor variables using as.numeric. What happens, and why? Does this help explain what happens when you try to take the mean?
 
 ```{r} 
 x <- as.numeric(pull(hw1, vec_factor)) ##convert factor into numeric value
 mean(x) 
 ```
-##The mean of the factor variable is 2. 
+##Answer: The mean of the factor variable is 2. 
 
 ```{r} 
 ##Logic variable 
 logic <- as.numeric(pull(hw1, vec_logical))
 mean(logic) 
 ```
-##The mean of the logic variable is 0.3.
+##Answer: The mean of the logic variable is 0.3.
 
 ```{r} 
 ##Character variable 
 character <- as.numeric(pull(hw1, vec_char))
 mean(character) 
 ```
-##There was a warning message stating that NAs were introduced by coercion so i was unadble to get a mean.
+##Answer: There was a warning message stating that NAs were introduced by coercion. We are not able to convert a character inot a numeric variable so R was unable to compute a mean. This does help explain what happened when I tried to take the mean. 
 
 ##PROBLEM 2
 ```{r}
@@ -65,8 +65,10 @@ ncol(penguins)
 nrow(penguins)
 str(penguins)
 summary(penguins)
+
+flipper_mean = mean(pull(penguins, flipper_length_mm), na.rm = TRUE)
 ```
-## In the dataframe penguins, there are 8 columns named: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. There are also 344 rows in the dataframe. Species is a factor variable with 3 levels: Adelie, Chinstrap, and Gentoo. There were 152 Adelie penguins, 68 Chinstrap penguins, and 124 Gentoo penguins. Island is also a factor variable with 3 variables: Biscoe, Torgersen, and Dream. There were 168 Biscoe penguins, 124 Dream penguins, and 52 Torgersen penguins. Sex is also a factor variable with 2 levels:female and male. There are 165 females, 168 males, and 11 penguins who classified as NA.  Bill_length_mm and Bill_depth_mm have number values. The shortest bill length was 32.10mm while the longest was 59.60 mm. The mean for bill length was 43.92mm and the median was 44.55 mm. The smallest bill depth was 13.10mm while the longest was 21.50 mm. The mean for bill depth was 17.15 mm while the median was 17.30 mm. Year, body_mass_g, and flipper_length_mm have integer values. The years included in the dataframe are 2007,2008,and 2009. The smallest body mass was 2700 grams while the largest was 6300 grams. The median for the body mass was 4050 grams and the mean was 4202 grams. The shortest flipper length was 172.0 mm while the longest was 231.0 mm. The median for the flipper length was 197 mm. THE MEAN FLIPPER LENGTH IS  200.9 mm.
+##Answer:  In the dataframe penguins, there are 8 columns named: species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. There are also 344 rows in the dataframe. Species is a factor variable with 3 levels: Adelie, Chinstrap, and Gentoo. There were 152 Adelie penguins, 68 Chinstrap penguins, and 124 Gentoo penguins. Island is also a factor variable with 3 variables: Biscoe, Torgersen, and Dream. There were 168 Biscoe penguins, 124 Dream penguins, and 52 Torgersen penguins. Sex is also a factor variable with 2 levels:female and male. There are 165 females, 168 males, and 11 penguins who classified as NA.  Bill_length_mm and Bill_depth_mm have number values. The shortest bill length was 32.10mm while the longest was 59.60 mm. The mean for bill length was 43.92mm and the median was 44.55 mm. The smallest bill depth was 13.10mm while the longest was 21.50 mm. The mean for bill depth was 17.15 mm while the median was 17.30 mm. Year, body_mass_g, and flipper_length_mm have integer values. The years included in the dataframe are 2007,2008,and 2009. The smallest body mass was 2700 grams while the largest was 6300 grams. The median for the body mass was 4050 grams and the mean was 4202 grams. The shortest flipper length was 172.0 mm while the longest was 231.0 mm. The median for the flipper length was 197 mm. THE MEAN FLIPPER LENGTH IS  200.9 mm.
 
 #Make a scatterplot
 ```{r}
